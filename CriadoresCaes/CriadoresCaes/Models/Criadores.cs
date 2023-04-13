@@ -5,6 +5,13 @@
     /// </summary>
     public class Criadores
     {
+
+        public Criadores()
+        {
+            //Inicializar a lista de animais do criador
+            ListaAnimais = new HashSet<Animais>();
+        }
+
         public int Id { get; set; }
 
         /// <summary>
@@ -36,6 +43,16 @@
         /// Telemóvel do Criador
         /// </summary>
         public string Telemovel { get; set; }
+
+
+        /* --------------------------------------------------------------------------
+         * relacionamento associados ao Criador
+         */
+
+        /// <summary>
+        /// Lista dis animais associados ao Criador
+        /// </summary>
+        public ICollection<Animais> ListaAnimais { get; set; }
 
     }
 }
