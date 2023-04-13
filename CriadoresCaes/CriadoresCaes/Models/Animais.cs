@@ -7,6 +7,11 @@ namespace CriadoresCaes.Models
     /// </summary>
     public class Animais
     {
+
+        public Animais() {
+            ListaFotografias = new HashSet<Fotos>();
+        }
+
         public int Id { get; set; }
 
         /// <summary>
@@ -57,5 +62,16 @@ namespace CriadoresCaes.Models
          *  - classes
          */
 
+        /// <summary>
+        /// FK do Animal para a sua Raça
+        /// </summary>
+        [ForeignKey(nameof(Raca))]
+        public int RacaFK { get; set; }
+        public Racas Raca { get; set; }
+
+        /// <summary>
+        /// Lista das Fotografias associadas ao animal
+        /// </summary>
+        public ICollection<Fotos> ListaFotografias { get; set; }
     }
 }

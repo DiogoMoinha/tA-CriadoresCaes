@@ -1,4 +1,6 @@
-﻿namespace CriadoresCaes.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace CriadoresCaes.Models
 {
     /// <summary>
     /// Fotografias dos cães, nas suas atividades
@@ -21,6 +23,17 @@
         /// data da fotografia
         /// </summary>
         public DateTime DataFotografia { get; set; }
+
+
+        // -------------------------------------------------------
+
+        /// <summary>
+        /// Fk da Fotografias para o animal
+        /// </summary>
+        [ForeignKey(nameof(Animal))]
+        public int AnimalFK { get; set; }
+        public Animais Animal { get; set; }
+
 
     }
 }
