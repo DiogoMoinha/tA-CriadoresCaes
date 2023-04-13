@@ -1,11 +1,20 @@
 using CriadoresCaes.Data;
+
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// ----------------------------------------------------------------
 // Add services to the container.
+// ----------------------------------------------------------------
+
+
+//esta variável contém a localização do servidor
+//A localização do Servidor está escrita no ficheiro 'appsettings'.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+
+//Inicializar o serviço de acesso à BD (SQL server)
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
